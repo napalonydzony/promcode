@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promcode | Nowoczesne Wizytówki Google i Strony WWW</title>
+    <style>
+        :root {
+            --white: #ffffff;
+            --light-bg: #f8fafc;
+            --primary: #0052ff;
+            --primary-hover: #003dbb;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #eff6ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 10%;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 8rem 10% 6rem 10%;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .services, .why-us, .about-detailed, .pricing {
+            padding: 6rem 10%;
+        }
+
+        .why-us {
+            background-color: var(--light-bg);
+        }
+
+        .about-detailed {
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 3rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 82, 255, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            stroke: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .about-text span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .price-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card.featured {
+            border-color: var(--primary);
+            background-color: var(--accent);
+            transform: scale(1.03);
+        }
+
+        .price-card.featured:hover {
+            transform: scale(1.03) translateY(-4px);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 1.5rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .contact {
+            padding: 6rem 10%;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 3rem 10%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .price-card.featured {
+                transform: none;
+            }
+            .price-card.featured:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1.5rem 5%; }
+            .nav-links { display: none; }
+            .hero { padding: 5rem 5% 4rem 5%; }
+            .hero h1 { font-size: 2.5rem; }
+            .services, .why-us, .about-detailed, .pricing { padding: 4rem 5%; }
+            .contact { padding: 4rem 5%; }
+            footer { padding: 2rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PROMCODE</div>
+        <div class="nav-links">
+            <a href="#uslugi">Usługi</a>
+            <a href="#dlaczego-warto">Dlaczego warto</a>
+           
+            <a href="#cennik">Cennik</a>
+             <a href="#o-nas">O nas</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Zadbaj o promocję swojej firmy w internecie</h1>
+            <p>Tworzymy nowoczesne wizytówki Google Maps oraz minimalistyczne strony internetowe, które pomogą tobie jako przedsiębiorcy przyciągnąć do siebie większą ilość klientów.</p>
+            <a href="#kontakt" class="btn">Rozpocznij współpracę</a>
+        </section>
+
+        <section class="services" id="uslugi">
+            <h2 class="section-title">Czym się dokładnie zajmujemy?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3>Wizytówki Google Maps</h3>
+                    <p>Profesjonalna konfiguracja i optymalizacja profilu firmy w Google. Zwiększ widoczność w swojej okolicy i daj się znaleźć klientom.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>Strony Wizytówkowe</h3>
+                    <p>Szybkie, responsywne i estetyczne strony www dla biznesu. Idealne rozwiązanie, aby zwięźle i skutecznie przedstawić swoją ofertę.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us" id="dlaczego-warto">
+            <h2 class="section-title">Dlaczego warto skorzystać z naszych usług?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Pełna kontrola nad profilem</h3>
+                    <p>Porządek w mapach Google jest kluczowy. Kiedy zakładasz wizytówkę samodzielnie z profesjonalną pomocą, masz nad nią pełną kontrolę. W innym przypadku ktoś może zrobić to za Ciebie i siać fałszywe informacje na temat twojej firmy w internecie.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+                    </div>
+                    <h3>Natychmiastowe przyciąganie uwagi</h3>
+                    <p>Dobrze zoptymalizowana wizytówka lub strona błyskawicznie przyciąga wzrok i uwagę klienta szukającego konkretnej usługi na danym obszarze. To najkrótsza droga do pozyskania nowego zlecenia.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3>Przemyślane i proste rozwiązania</h3>
+                    <p>Wiemy, że część menu lub oferty nie jest stała i mamy na to rozwiązanie. Oferujemy stronę ze stałym menu, która po prostu jest w sieci i nie wymaga ciągłych zmian. Dynamiczną część karty da się wpiąć jako link do zdjęcia na wizytówce Google – bez zbędnego kombinowania i ciągłych edycji kodu.</p>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <section class="pricing" id="cennik">
+            <h2 class="section-title">Cennik</h2>
+            <div class="grid">
+                <div class="card price-card">
+                    <div>
+                        <h3>Wizytówka Google</h3>
+                        <p>Założenie, pełna konfiguracja i optymalizacja profilu lokalnego w Google Maps.</p>
+                    </div>
+                    <div>
+                        <div class="price">300 zł</div>
+                    </div>
+                </div>
+                <div class="card price-card">
+                    <div>
+                        <h3>Strona Internetowa</h3>
+                        <p>Modernistyczna strona wizytówkowa dostosowana do telefonów z Twoją własną domeną.</p>
+                    </div>
+                    <div>
+                        <div class="price">300 zł</div>
+                    </div>
+                </div>
+                <div class="card price-card">
+                    <div>
+                        <h3>Pakiet Kompleksowy</h3>
+                        <p>Pełna obecność w sieci. Profesjonalna wizytówka Google Maps połączona z nowoczesną stroną WWW.</p>
+                    </div>
+                    <div>
+                        <div class="price">500 zł</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section class="about-detailed" id="o-nas">
+            <h2 class="section-title">O naszej działalności</h2>
+            <div class="about-container">
+                <p class="about-text">W Promcode wierzymy, że silna obecność lokalna w sieci to fundament sukcesu każdego współczesnego przedsiębiorstwa. Skupiamy się na dostarczaniu prostych, przejrzystych i przede wszystkim skutecznych rozwiązań dla małych oraz rozwijających się firm. Nie oferujemy skomplikowanych, drogich systemów, których obsługa wymaga specjalistycznej wiedzy. Zamiast tego wdrażamy sprawdzone narzędzia, które natychmiast przynoszą efekty w postaci nowych klientów.</p>
+                <p class="about-text">Nasza specjalizacja obejmuje kompleksowe projektowanie nowoczesnych stron wizytówkowych oraz precyzyjne pozycjonowanie profili w Google Maps. Dbamy o każdy detal techniczny – od optymalizacji szybkości ładowania, przez pełną responsywność na urządzeniach mobilnych, aż po logiczną i intuicyjną architekturę informacji. Wiemy, jak cenny jest czas przedsiębiorcy, dlatego nasze realizacje są bezobsługowe i zaprojektowane tak, aby działały stabilnie przez lata bez konieczności ciągłych, kosztownych modyfikacji.</p>
+            </div>
+        </section>
+
+        <section class="contact" id="kontakt">
+            <h2 class="section-title">Zbudujmy Twoją pozycję w sieci</h2>
+            <div class="contact-info">
+                <p>Napisz do nas, abyśmy mogli nawiązać współpracę:</p>
+                <p><a href="mailto:promcode@hotmail.com">promcode@hotmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2026 promcode. Wszelkie prawa zastrzeżone.</div>
+    </footer>
+
+</body>
+</html>
